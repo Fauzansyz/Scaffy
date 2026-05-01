@@ -20,16 +20,16 @@ create
           value: 'reactjs',
         },
         {
-          name: 'Vue',
+          name: chalk.green('Vue'),
           value: 'vuejs',
         },
 
         {
-          name: 'Vanila',
+          name: chalk.yellow('Vanila'),
           value: 'vanilajs',
         },
         {
-          name: 'Astro',
+          name: chalk.red('Astro'),
           value: 'astrojs',
         },
       ],
