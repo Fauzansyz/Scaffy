@@ -1,12 +1,12 @@
 const { Command } = require("commander");
 const fs = require("fs");
-const select = require("@inquirer/select").default;
+const { select, confirm } = require("@inquirer/prompts");
 
 const path = require("path");
 
 const create = new Command('create');
 const chalk = require('chalk').default
-const processFile = require('../utils/processFile')
+const processFile = require('../utils/processFile');
 
 create
   .argument("<project-name>")
@@ -17,24 +17,34 @@ create
       choices: [
         {
           name: chalk.blue('React'),
-          value: 'reactjs',
+          value: 'react',
         },
         {
           name: chalk.green('Vue'),
-          value: 'vuejs',
+          value: 'vue',
         },
 
         {
           name: chalk.yellow('Vanila'),
-          value: 'vanilajs',
+          value: 'vanila',
         },
         {
           name: chalk.red('Astro'),
-          value: 'astrojs',
+          value: 'astro',
+        },
+        {
+          name: chalk.white("Next"),
+          value: "next"
         },
       ],
     });
-    const templateName = options.template;
+
+    const useTs = await confirm({
+      message: "Use Typescript ?"
+    })
+
+    const templateName = `${answer.value}-${useTs ? "ts" : "js"}`;
+
 
     const projectPath = path.join(process.cwd(), projectName);
     const templatePath = path.join(__dirname, "../templates", templateName);
