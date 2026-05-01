@@ -1,0 +1,22 @@
+{
+  "name": "coding-template-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "bin": {
+    "template": "./bin/template.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@inquirer/prompts": "^8.4.2",
+    "@inquirer/select": "^5.1.4",
+    "commander": "^14.0.3",
+    "inquirer": "^13.4.2"
+  }
+}
