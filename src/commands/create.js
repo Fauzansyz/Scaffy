@@ -10,7 +10,7 @@ const processFile = require('../utils/processFile');
 
 create
   .argument("<project-name>")
-  .option("-t, --template <template>", "template name", "react-js")
+  .option("-t, --template <template>", "template name", "react")
   .action(async (projectName, options) => {
     const answer = await select({
       message: 'Select a framework template',
@@ -43,11 +43,11 @@ create
       message: "Use Typescript ?"
     })
 
-    const templateName = `${answer.value}-${useTs ? "ts" : "js"}`;
+    const templateName = `${answer}-${useTs ? "ts" : "js"}`;
 
 
     const projectPath = path.join(process.cwd(), projectName);
-    const templatePath = path.join(__dirname, "../templates", templateName);
+    const templatePath = path.join(__dirname, "../../templates", templateName);
 
     console.log("TEMPLATE:", templatePath);
 
@@ -63,7 +63,7 @@ create
 
     fs.cpSync(templatePath, projectPath, { recursive: true });
 
-    processFiles(projectPath, {
+    processFile(projectPath, {
       PROJECT_NAME: projectName,
     });
 

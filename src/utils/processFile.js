@@ -3,17 +3,17 @@ const path = require("path");
 const replaceName = require("./replaceName");
 
 function processFile(dir, variables) {
-	const items = fs.readdirSync(dir);
+  const items = fs.readdirSync(dir);
 
-	for (const item of items) {
-		const fullPath = path.join(dir, item);
+  for (const item of items) {
+    const fullPath = path.join(dir, item);
 
-		if (fs.lstatSync(fullPath).isDirectory()) {
-			processFiles(fullPath, variables);
-		} else {
-			replaceName(fullPath, variables);
-		}
-	}
+    if (fs.lstatSync(fullPath).isDirectory()) {
+      processFile(fullPath, variables);
+    } else {
+      replaceName(fullPath, variables);
+    }
+  }
 }
 
 module.exports = processFile;
