@@ -8,7 +8,7 @@ const path = require("path");
 const program = new Command();
 
 program
-  .name("zan")
+  .name("Scaffy")
   .description("CLI generator")
   .version("1.0.0");
 
