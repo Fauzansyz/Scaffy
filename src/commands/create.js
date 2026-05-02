@@ -25,8 +25,8 @@ create
         },
 
         {
-          name: chalk.yellow('Vanila'),
-          value: 'vanila',
+          name: chalk.yellow('Vanilla'),
+          value: 'vanilla',
         },
         {
           name: chalk.red('Astro'),
