@@ -49,15 +49,13 @@ create
     const projectPath = path.join(process.cwd(), projectName);
     const templatePath = path.join(__dirname, "../../templates", templateName);
 
-    console.log("TEMPLATE:", templatePath);
-
     if (!fs.existsSync(templatePath)) {
-      console.log("❌ Template tidak ditemukan");
+      console.log("❌ Template not found");
       return;
     }
 
     if (fs.existsSync(projectPath)) {
-      console.log("❌ Project sudah ada");
+      console.log("❌ The project already exists");
       return;
     }
 
@@ -68,7 +66,7 @@ create
     });
 
 
-    console.log(`✅ Project ${projectName} berhasil dibuat`);
+    console.log(`✅ Project ${projectName}  successfully created`);
   });
 
 module.exports = create
